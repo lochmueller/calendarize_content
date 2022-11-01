@@ -14,8 +14,6 @@ use HDNET\CalendarizeContent\Domain\Model\Content;
 class EventRegister
 {
 
-    public const DOKTYPE_EVENT = 132;
-
     public const REGISTER_KEY = 'CalendarizeContent';
     
     /**
@@ -25,10 +23,10 @@ class EventRegister
     {
         return [
             'uniqueRegisterKey' => self::REGISTER_KEY,
-            'title' => 'Calendarize Page',
+            'title' => 'Calendarize Content',
             'modelName' => Content::class,
             'partialIdentifier' => 'CalendarizeContent',
-            'tableName' => 'pages',
+            'tableName' => 'tt_content',
             'required' => false,
         ];
     }

@@ -15,38 +15,23 @@ class Content extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     /**
      * @var string
      */
-    protected $title = '';
+    protected $header = '';
 
     /**
      * @var string
      */
-    protected $subtitle = '';
+    protected $subheader = '';
 
-    /**
-     * @var string
-     */
-    protected $description = '';
-
-    /**
-     * @var string
-     */
-    protected $abstract = '';
-
-    /**
-     * @var string
-     */
-    protected $author = '';
-    
     /**
      * Categories.
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
      */
     protected $categories;
+
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
-    
     protected $media;
 
     public function __construct()
@@ -55,53 +40,24 @@ class Content extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
         $this->categories = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
     }
 
-    public function getTitle(): string
+    public function getHeader(): string
     {
-        return $this->title;
+        return $this->header;
     }
 
-    public function setTitle(string $title): void
+    public function setHeader(string $header): void
     {
-        $this->title = $title;
+        $this->header = $header;
     }
 
-    public function getDescription(): string
+    public function getSubheader(): string
     {
-        return $this->description;
+        return $this->subheader;
     }
 
-    public function setDescription(string $description): void
+    public function setSubheader(string $subheader): void
     {
-        $this->description = $description;
-    }
-
-    public function getSubtitle(): string
-    {
-        return $this->subtitle;
-    }
-
-    public function setSubtitle(string $subtitle): void
-    {
-        $this->subtitle = $subtitle;
-    }
-
-    public function getAbstract(): string
-    {
-        return $this->abstract;
-    }
-
-    public function setAbstract(string $abstract): void
-    {
-        $this->abstract = $abstract;
-    }
-    public function getAuthor(): string
-    {
-        return $this->author;
-    }
-
-    public function setAuthor(string $author): void
-    {
-        $this->author = $author;
+        $this->subheader = $subheader;
     }
 
     public function getMedia(): \TYPO3\CMS\Extbase\Persistence\ObjectStorage
@@ -113,7 +69,7 @@ class Content extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     {
         $this->media = $media;
     }
-    
+
     public function getCategories()
     {
         return $this->categories;

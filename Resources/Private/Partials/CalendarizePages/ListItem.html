@@ -1,12 +1,12 @@
 {namespace c=HDNET\Calendarize\ViewHelpers}
 
-<f:alias map="{page: index.originalObject}">
+<f:alias map="{content: index.originalObject}">
 	<div class="panel panel-default state-{index.state}">
 		<div class="panel-body">
 			<div class="media calendarize-item">
 				<div class="media-body">
 					<h2>
-						<f:link.page pageUid="{page.uid}">
+						<f:link.page pageUid="{content.pid}">
 							<f:render partial="{index.configuration.partialIdentifier}/Title" arguments="{index: index}"/>
 						</f:link.page>
 					</h2>
