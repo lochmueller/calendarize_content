@@ -1,0 +1,20 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  HDNET\CalendarizeContent\:
+    resource: '../Classes/*'
+
+  HDNET\CalendarizeContent\EventListener\IndexRepositorySearchListener:
+    tags:
+      - name: event.listener
+        identifier: 'calendarizePagesSearch'
+        event: HDNET\Calendarize\Event\IndexRepositoryFindBySearchEvent
+
+  HDNET\CalendarizeContent\EventListener\PagesEventConstraintsListener:
+    tags:
+      - name: event.listener
+        identifier: 'pagesEventConstraints'
+        event: HDNET\Calendarize\Event\IndexRepositoryDefaultConstraintEvent

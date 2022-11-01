@@ -1,1 +1,3 @@
-# calendarize_content
+# EXT:calendarize_content
+
+Calendarize integration for content!
