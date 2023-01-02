@@ -18,7 +18,6 @@ class ContentEventConstraintsListener
 
         $categoryIds = $this->getPossibleCategories($event);
 
-
         if (empty($categoryIds)) {
             return;
         }
@@ -45,8 +44,8 @@ class ContentEventConstraintsListener
         $event->setIndexIds($indexIds);
     }
 
-    protected function getPossibleCategories(IndexRepositoryDefaultConstraintEvent $event):array {
-
+    protected function getPossibleCategories(IndexRepositoryDefaultConstraintEvent $event): array
+    {
         $table = 'sys_category_record_mm';
         $db = HelperUtility::getDatabaseConnection($table);
         $q = $db->createQueryBuilder();

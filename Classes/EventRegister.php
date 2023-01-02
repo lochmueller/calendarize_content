@@ -13,9 +13,8 @@ use HDNET\CalendarizeContent\Domain\Model\Content;
  */
 class EventRegister
 {
-
     public const REGISTER_KEY = 'CalendarizeContent';
-    
+
     /**
      * @return array
      */
@@ -31,7 +30,8 @@ class EventRegister
         ];
     }
 
-    public static function getAutoloaderConfiguration():array {
+    public static function getAutoloaderConfiguration(): array
+    {
         return [
             'SmartObjects',
         ];

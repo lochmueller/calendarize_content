@@ -14,7 +14,6 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 class IndexRepositorySearchListener
 {
-
     public function __invoke(IndexRepositoryFindBySearchEvent $event)
     {
         if (!\in_array($this->getUniqueRegisterKey(), $event->getIndexTypes(), true)) {
@@ -35,7 +34,6 @@ class IndexRepositorySearchListener
             $indexIds['content'] = $searchTermHits;
             $event->setIndexIds($indexIds);
         }
-
     }
 
     /**
@@ -49,5 +47,4 @@ class IndexRepositorySearchListener
 
         return $config['uniqueRegisterKey'];
     }
-
 }

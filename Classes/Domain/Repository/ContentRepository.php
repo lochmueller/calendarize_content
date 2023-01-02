@@ -2,9 +2,9 @@
 
 namespace HDNET\CalendarizeContent\Domain\Repository;
 
-use TYPO3\CMS\Extbase\Persistence\Repository;
-use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\Qom\OrInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Repository for Content models.
@@ -35,7 +35,7 @@ class ContentRepository extends Repository
 
         $ids = [];
         foreach ($rows as $row) {
-            $ids[] = (int) $row['uid'];
+            $ids[] = (int)$row['uid'];
         }
 
         return $ids;
