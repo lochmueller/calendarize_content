@@ -10,11 +10,11 @@ services:
   HDNET\CalendarizeContent\EventListener\IndexRepositorySearchListener:
     tags:
       - name: event.listener
-        identifier: 'calendarizePagesSearch'
+        identifier: 'calendarizeContentSearch'
         event: HDNET\Calendarize\Event\IndexRepositoryFindBySearchEvent
 
   HDNET\CalendarizeContent\EventListener\PagesEventConstraintsListener:
     tags:
       - name: event.listener
-        identifier: 'pagesEventConstraints'
+        identifier: 'contentEventConstraints'
         event: HDNET\Calendarize\Event\IndexRepositoryDefaultConstraintEvent

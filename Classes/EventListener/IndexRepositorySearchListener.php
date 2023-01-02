@@ -28,11 +28,11 @@ class IndexRepositorySearchListener
             return;
         }
 
-        $pageRepository = GeneralUtility::makeInstance(ObjectManager::class)->get(ContentRepository::class);
-        $searchTermHits = $pageRepository->getIdsBySearch($fullText, $category);
+        $contentRepository = GeneralUtility::makeInstance(ObjectManager::class)->get(ContentRepository::class);
+        $searchTermHits = $contentRepository->getIdsBySearch($fullText, $category);
         if ($searchTermHits && \count($searchTermHits)) {
             $indexIds = $event->getIndexIds();
-            $indexIds['pages'] = $searchTermHits;
+            $indexIds['content'] = $searchTermHits;
             $event->setIndexIds($indexIds);
         }
 

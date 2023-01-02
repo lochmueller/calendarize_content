@@ -23,14 +23,14 @@ class ContentEventConstraintsListener
             return;
         }
 
-        $db = HelperUtility::getDatabaseConnection('pages');
+        $db = HelperUtility::getDatabaseConnection('tt_content');
         $q = $db->createQueryBuilder();
         $q->resetQueryParts();
         $rows = $q->select('uid_foreign')
             ->from('sys_category_record_mm')
             ->where(
                 $q->expr()->in('uid_local', $categoryIds),
-                $q->expr()->eq('tablenames', $q->quote('pages')),
+                $q->expr()->eq('tablenames', $q->quote('tt_content')),
                 $q->expr()->eq('fieldname', $q->quote('categories'))
             )
             ->execute()
