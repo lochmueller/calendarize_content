@@ -24,7 +24,7 @@ class ContentEventConstraintsListener
 
         $db = HelperUtility::getDatabaseConnection('tt_content');
         $q = $db->createQueryBuilder();
-        $q->resetQueryParts();
+
         $rows = $q->select('uid_foreign')
             ->from('sys_category_record_mm')
             ->where(
@@ -32,8 +32,8 @@ class ContentEventConstraintsListener
                 $q->expr()->eq('tablenames', $q->quote('tt_content')),
                 $q->expr()->eq('fieldname', $q->quote('categories'))
             )
-            ->execute()
-            ->fetchAll();
+            ->executeQuery()
+            ->fetchAllAssociative();
 
         $indexIds = $event->getIndexIds();
         foreach ($rows as $row) {
@@ -41,7 +41,7 @@ class ContentEventConstraintsListener
         }
 
         $indexIds[] = -1;
-        $event->setIndexIds($indexIds);
+        $event->setForeignIds($indexIds);
     }
 
     protected function getPossibleCategories(IndexRepositoryDefaultConstraintEvent $event): array
@@ -56,14 +56,14 @@ class ContentEventConstraintsListener
             $rows = $q->select('uid_local')
                 ->from($table)
                 ->where(
-                    $q->expr()->andX(
+                    $q->expr()->and(
                         $q->expr()->eq('tablenames', $q->quote('tt_content')),
                         $q->expr()->eq('fieldname', $q->quote('categories')),
                         $q->expr()->eq('uid_foreign', $q->createNamedParameter($additionalSlotArguments['contentRecord']['uid']))
                     )
                 )
-                ->execute()
-                ->fetchAll();
+                ->executeQuery()
+                ->fetchAllAssociative();
 
             foreach ($rows as $row) {
                 $categoryIds[] = (int)$row['uid_local'];

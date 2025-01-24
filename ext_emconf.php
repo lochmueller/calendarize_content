@@ -9,14 +9,13 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'fe',
     'version' => '0.1.1',
     'state' => 'beta',
-    'clearcacheonload' => 1,
     'author' => 'Tim Lochmüller',
     'author_email' => 'tim@fruit-lab.de',
     'constraints' => [
         'depends' => [
-            'typo3' => '10.4.6-11.5.99',
-            'php' => '7.3.0-8.0.99',
-            'calendarize' => '10.0.0-12.99.99',
+            'typo3' => '12.4.0-13.4.99',
+            'php' => '8.1.0-8.4.99',
+            'calendarize' => '13.0.0-14.99.99',
         ],
     ],
     'autoload' => [

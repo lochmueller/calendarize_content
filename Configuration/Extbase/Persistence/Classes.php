@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
-use HDNET\Autoloader\Utility\ExtbasePersistenceUtility;
+use HDNET\CalendarizeContent\Domain\Model\Content;
 
-return ExtbasePersistenceUtility::getClassMappingForExtension('calendarize_content');
+return [
+    Content::class => [
+        'tableName' => 'tt_content',
+    ],
+];

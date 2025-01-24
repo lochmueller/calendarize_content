@@ -1,7 +1,5 @@
 <?php
-/**
- * Event register
- */
+
 declare(strict_types=1);
 
 namespace HDNET\CalendarizeContent\EventListener;
@@ -9,11 +7,11 @@ namespace HDNET\CalendarizeContent\EventListener;
 use HDNET\Calendarize\Event\IndexRepositoryFindBySearchEvent;
 use HDNET\CalendarizeContent\Domain\Repository\ContentRepository;
 use HDNET\CalendarizeContent\EventRegister;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 class IndexRepositorySearchListener
 {
+    public function __construct(protected ContentRepository $contentRepository) {}
+
     public function __invoke(IndexRepositoryFindBySearchEvent $event)
     {
         if (!\in_array($this->getUniqueRegisterKey(), $event->getIndexTypes(), true)) {
@@ -27,21 +25,18 @@ class IndexRepositorySearchListener
             return;
         }
 
-        $contentRepository = GeneralUtility::makeInstance(ObjectManager::class)->get(ContentRepository::class);
-        $searchTermHits = $contentRepository->getIdsBySearch($fullText, $category);
+        $searchTermHits = $this->contentRepository->getIdsBySearch($fullText, $category);
         if ($searchTermHits && \count($searchTermHits)) {
-            $indexIds = $event->getIndexIds();
+            $indexIds = $event->getForeignIds();
             $indexIds['content'] = $searchTermHits;
-            $event->setIndexIds($indexIds);
+            $event->setForeignIds($indexIds);
         }
     }
 
     /**
      * Unique register key.
-     *
-     * @return string
      */
-    protected function getUniqueRegisterKey()
+    protected function getUniqueRegisterKey():string
     {
         $config = EventRegister::getConfigurationContent();
 

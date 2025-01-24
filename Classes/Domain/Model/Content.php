@@ -4,9 +4,6 @@ namespace HDNET\CalendarizeContent\Domain\Model;
 
 use HDNET\Autoloader\Annotation\DatabaseTable;
 
-/**
- * @DatabaseTable("tt_content")
- */
 class Content extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 

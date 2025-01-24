@@ -6,19 +6,13 @@ use TYPO3\CMS\Extbase\Persistence\Generic\Qom\OrInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
-/**
- * Repository for Content models.
- */
+
 class ContentRepository extends Repository
 {
     /**
      * Get the IDs of the given search term.
-     *
-     * @param string $searchTerm
-     *
-     * @return array
      */
-    public function getIdsBySearch(string $searchTerm, int $category)
+    public function getIdsBySearch(string $searchTerm, int $category):array
     {
         $query = $this->createQuery();
         $constraint = [];
@@ -49,6 +43,6 @@ class ContentRepository extends Repository
             $query->like('description', '%' . $searchWord . '%'),
         ];
 
-        return $query->logicalOr($logicalOrConstraints);
+        return $query->logicalOr(...$logicalOrConstraints);
     }
 }

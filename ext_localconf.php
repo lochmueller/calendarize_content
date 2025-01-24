@@ -2,7 +2,6 @@
 
 defined('TYPO3_MODE') || die();
 
-\HDNET\Autoloader\Loader::extLocalconf('HDNET', 'calendarize_content', \HDNET\CalendarizeContent\EventRegister::getAutoloaderConfiguration());
 \HDNET\Calendarize\Register::extLocalconf(\HDNET\CalendarizeContent\EventRegister::getConfigurationPages());
 
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
