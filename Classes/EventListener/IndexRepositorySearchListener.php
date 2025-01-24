@@ -10,7 +10,9 @@ use HDNET\CalendarizeContent\EventRegister;
 
 class IndexRepositorySearchListener
 {
-    public function __construct(protected ContentRepository $contentRepository) {}
+    public function __construct(protected ContentRepository $contentRepository)
+    {
+    }
 
     public function __invoke(IndexRepositoryFindBySearchEvent $event)
     {
@@ -36,7 +38,7 @@ class IndexRepositorySearchListener
     /**
      * Unique register key.
      */
-    protected function getUniqueRegisterKey():string
+    protected function getUniqueRegisterKey(): string
     {
         $config = EventRegister::getConfigurationContent();
 

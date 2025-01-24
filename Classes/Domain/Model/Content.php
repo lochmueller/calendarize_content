@@ -2,11 +2,8 @@
 
 namespace HDNET\CalendarizeContent\Domain\Model;
 
-use HDNET\Autoloader\Annotation\DatabaseTable;
-
 class Content extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-
     /**
      * @var string
      */

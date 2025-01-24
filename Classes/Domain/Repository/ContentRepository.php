@@ -6,13 +6,12 @@ use TYPO3\CMS\Extbase\Persistence\Generic\Qom\OrInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
-
 class ContentRepository extends Repository
 {
     /**
      * Get the IDs of the given search term.
      */
-    public function getIdsBySearch(string $searchTerm, int $category):array
+    public function getIdsBySearch(string $searchTerm, int $category): array
     {
         $query = $this->createQuery();
         $constraint = [];

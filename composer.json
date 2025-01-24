@@ -30,7 +30,7 @@
 	"require": {
 		"php": "^8.1",
 		"typo3/cms-core": "^12.4||^13.4",
-		"lochmueller/calendarize": "^13.0||^14.0",
+		"lochmueller/calendarize": "^13.0||^14.0"
 	},
 	"replace": {
 		"typo3-ter/calendarize-content": "self.version"
@@ -41,12 +41,7 @@
 		"issues": "https://github.com/lochmueller/calendarize_content/issues"
 	},
 	"require-dev": {
-		"namelesscoder/typo3-repository-client": "^2.0",
-		"typo3/testing-framework": "^6.3",
-		"squizlabs/php_codesniffer": "^2.6",
-		"friendsofphp/php-cs-fixer": "^2.16",
-		"phpmd/phpmd": "^2.4",
-		"scrutinizer/ocular": "^1.3"
+		"friendsofphp/php-cs-fixer": "^3.50"
 	},
 	"config": {
 		"vendor-dir": ".Build/vendor",
