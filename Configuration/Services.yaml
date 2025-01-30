@@ -13,7 +13,7 @@ services:
         identifier: 'calendarizeContentSearch'
         event: HDNET\Calendarize\Event\IndexRepositoryFindBySearchEvent
 
-  HDNET\CalendarizeContent\EventListener\PagesEventConstraintsListener:
+  HDNET\CalendarizeContent\EventListener\ContentEventConstraintsListener:
     tags:
       - name: event.listener
         identifier: 'contentEventConstraints'
